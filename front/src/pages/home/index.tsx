@@ -1,8 +1,8 @@
 import React from 'react';
-import Exportadores from '../../components/exportadores';
+import Registro from '../../components/registro';
 
-const Home: React.FC = () => {
-  return <Exportadores/>
+const homePagina: React.FC = () => {
+  return <Registro/>
 };
 
-export default Home;
+export default homePagina;

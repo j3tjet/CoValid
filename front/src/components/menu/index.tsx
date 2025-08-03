@@ -7,6 +7,7 @@ const Menu: React.FC = () =>{
         <div className='menu-enlaces'>
             <ul>
                 <li><Link to="/">Inicio</Link></li>
+                <li><Link to="/exportadores">Exportadores</Link></li>
             </ul>
         </div>
     );
