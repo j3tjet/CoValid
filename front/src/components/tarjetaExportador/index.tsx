@@ -2,34 +2,51 @@ import React from 'react';
 import './style.css';
 import { Link } from 'react-router-dom';
 
-
-const TarjetaExportador: React.FC = () =>{
-    return <div className="exportador-tarjeta">
-        <div className='imagen-contenedor'>
-            <img src="https://ahoraelpueblo.bo/images/noticias/economia/2024/09/ExportadoresBloqueos18924.jpg" alt="imagen-del-exportador" />
-        </div>
-        <div className='exportador-info'>
-            <h3>Nombre del exportador</h3>
-            <ul>
-                <li><p><strong>Pais: </strong>Pais</p></li>
-                <li><p><strong>Rubro: </strong>Rubro</p></li>
-                <li><p><strong>No. de  Registro: </strong>No. de  Registro</p></li>
-                <li><p><strong>Otro dato: </strong>Otro dato</p></li>
-            </ul>
-            <Link
-                to="/chat"
-                state={{
-                    nombre: 'Empresa Exportadora S.A.',
-                    pais: 'Bolivia',
-                    rubro: 'Alimentos',
-                    registro: '123456789',
-                    otro: 'Certificado ISO'
-                }}
-                >
-                Negociar
-             </Link>
-        </div>
-    </div>;
+interface TarjetaExportadorProps {
+  nombre: string;
+  pais: string;
+  rubro: string;
+  registro: string;
+  otro: string;
+  imagen?: string;
 }
+
+const TarjetaExportador: React.FC<TarjetaExportadorProps> = ({
+  nombre,
+  pais,
+  rubro,
+  registro,
+  otro,
+  imagen = "https://ahoraelpueblo.bo/images/noticias/economia/2024/09/ExportadoresBloqueos18924.jpg"
+}) => {
+  return (
+    <div className="exportador-tarjeta">
+      <div className='imagen-contenedor'>
+        <img src={imagen} alt="imagen-del-exportador" />
+      </div>
+      <div className='exportador-info'>
+        <h3>{nombre}</h3>
+        <ul>
+          <li><p><strong>País: </strong>{pais}</p></li>
+          <li><p><strong>Rubro: </strong>{rubro}</p></li>
+          <li><p><strong>No. de Registro: </strong>{registro}</p></li>
+          <li><p><strong>Otro dato: </strong>{otro}</p></li>
+        </ul>
+        <Link
+          to="/chat"
+          state={{
+            nombre,
+            pais,
+            rubro,
+            registro,
+            otro
+          }}
+        >
+          Negociar
+        </Link>
+      </div>
+    </div>
+  );
+};
 
 export default TarjetaExportador;

@@ -5,9 +5,11 @@ import ComprarPopup from '../comprarPopup';
 import ExitoPopup from '../exitoPopup';
 
 type MensajeData = {
-  texto: string;
+  texto?: string;
+  imagenUrl?: string;
   esMio: boolean;
 };
+
 
 interface ExportadorProps {
   datos: {
@@ -51,12 +53,34 @@ const ChatExportador: React.FC<ExportadorProps> = ({ datos }) => {
 
       <div className="mensajes-contenedor" ref={contenedorRef}>
         {mensajes.map((m, idx) => (
-          <Mensaje key={idx} contenido={m.texto} esMio={m.esMio} />
+          <Mensaje key={idx} contenido={m.texto} imagenUrl={m.imagenUrl} esMio={m.esMio} />
         ))}
       </div>
 
       <div className="chat-bottom">
         <form onSubmit={manejarEnvio} className="chat-form">
+         <label className="icono-subir-imagen">
+            📷
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(e) => {
+                const file = e.target.files?.[0];
+                if (file) {
+                  const reader = new FileReader();
+                  reader.onloadend = () => {
+                    setMensajes((prev) => [
+                      ...prev,
+                      { imagenUrl: reader.result as string, esMio: true }
+                    ]);
+                  };
+                  reader.readAsDataURL(file);
+                }
+              }}
+              style={{ display: 'none' }} // 🔒 oculta el input nativo
+            />
+          </label>
+
           <input
             type="text"
             value={mensaje}
