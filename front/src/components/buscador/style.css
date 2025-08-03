@@ -1,0 +1,9 @@
+.buscador-contenedor{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.buscador-contenedor input{
+    flex: 1;
+}

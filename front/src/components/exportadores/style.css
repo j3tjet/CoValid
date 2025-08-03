@@ -1,0 +1,9 @@
+section{
+    max-width: 1330px;
+    margin: auto;
+    padding: 20px 50px;
+}
+.tarjetas-contenedor{
+    display: flex;
+    flex-wrap: wrap;
+}

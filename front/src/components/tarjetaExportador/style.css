@@ -1,0 +1,47 @@
+.exportador-tarjeta{
+    width: 200px;
+    background-color: #000000;
+    padding: 10px 20px;
+    margin: 20px;
+    border-radius: 10px;
+
+}
+.imagen-contenedor{
+    justify-self: center;
+}
+.exportador-tarjeta ul{
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    padding: 0px;
+}
+.exportador-tarjeta p{
+    font-weight: 400;
+    margin: 0px;
+}
+.exportador-tarjeta a{
+    font-size: 16px;
+    font-weight: 600;
+    display: block;
+    padding: 10px 20px;
+    margin: 20px;
+    background-color: blue;
+    color: #ffffff;
+    text-transform: uppercase;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align:center;
+}
+.exportador-tarjeta a:hover{
+    background-color: #000000;
+}
+.exportador-tarjeta img{
+    width: 100%;
+}
+.exportador-info > h3{
+    font-size: 16px;
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 19px;
+    text-align: center;
+}
